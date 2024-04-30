@@ -1,0 +1,55 @@
+{
+  "name": "preview-lottie",
+  "displayName": "lottie-viewer",
+  "description": "preview lottie in side panel",
+  "author": "Eivgeniy Gudilov",
+  "publisher": "Eivgeniy Gudilov",
+  "license": "MIT",
+  "version": "0.0.1",
+  "icon": "image.png",
+  "engines": {
+    "vscode": "^1.88.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "lottieViewer.previewLottie",
+        "title": "Preview Lottie JSON"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "lottieViewer.previewLottie",
+        "key": "ctrl+i",
+        "when": "editorTextFocus && resourceExtname == .json"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.88.0",
+    "@typescript-eslint/eslint-plugin": "^7.4.0",
+    "@typescript-eslint/parser": "^7.4.0",
+    "@vscode/test-cli": "^0.0.8",
+    "@vscode/test-electron": "^2.3.9",
+    "eslint": "^8.57.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "lottie-web": "^5.12.2"
+  }
+}
